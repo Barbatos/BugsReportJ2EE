@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<mainController xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://api.kobject.net/xml/mapping-1.0.0.25b.xsd">
+	<mappings>
+		<mapping requestURL="index.do" responseURL="/WEB-INF/default/index.jsp"/>
+		<mapping requestURL="home.do" responseURL="/WEB-INF/default/home.jsp"/>
+		<mapping requestURL="utilisateur.do" responseURL="/WEB-INF/samples/utilisateur.view"/>
+		<mapping requestURL="m{#(.*?)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp"/>
+		<mapping requestURL="{#(.*?)#}s.do" responseURL="/WEB-INF/samples/$1.list"/>
+	</mappings>
+	<filters>
+	</filters>
+	<ajax-includes>
+		<request requestURL="index.do">
+			<js triggerSelector="body" triggerEvent="load">
+				<selector selector="#contentMenu .menuItem" selectedStyle="{'color':'black','backgroundColor':'#FFEFC7'}" startIndex="0">
+					<include targetURL="{js:target.id+'.do'}" targetId="main" transition="opacityShow"/>
+				</selector>
+				<include targetURL="home.do" targetId="main" transition="opacityShow"/>
+			</js>
+			<js triggerSelector="#logo">
+				<fireEvent triggerId="home" triggerEvent="click"/>
+			</js>
+		</request>
+		<request requestURL="home.do">
+			<js triggerSelector="#menu li">
+				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
+			</js>
+		</request>
+	</ajax-includes>
+</mainController>

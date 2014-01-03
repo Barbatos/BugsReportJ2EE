@@ -1,0 +1,5 @@
+{_form}
+{_fieldset}
+{login}{password}{mail}{idGroupe}{affectations}
+{/_fieldset}
+{/_form}

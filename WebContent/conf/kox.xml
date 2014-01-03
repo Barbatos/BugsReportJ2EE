@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<controllers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://api.kobject.net/xml/controller-1.0.0.25b.xsd">
+	<class name="KTester">
+		<member control="cmb" name="_cls" type="string" />
+		<member control="range" max="6" min="0" name="_depth" />
+		<member name="_useCache" type="boolean" />
+		<member control="checkedlist" multiple="true" name="_field" />
+	</class>
+	<class name="KAffectation">
+		<member max="11" name="idApplication" required="1" type="int" control="cmb"/>
+		<member max="10" name="dateAffectation" required="0" type="date" />
+		<member max="11" name="idUtilisateur" required="1" type="int" control="hidden"/>
+	</class>
+	<class name="KApplication">
+		<member max="10" name="dateCreation" required="1" type="date" />
+		<member max="5592405" name="descriptif" required="1" type="string" />
+		<member max="50" name="libelle" required="1" type="string" />
+		<member max="20" name="version" required="1" type="string" />
+		<member name="usecases" multiple="true"/>
+	</class>
+	<class name="KDroit">
+		<member max="11" name="idGroupe" required="1" type="int" />
+		<member max="11" name="idModule" required="1" type="int" />
+	</class>
+	<class name="KGroupe">
+		<member max="50" name="libelle" required="1" type="string" />
+		<member name="modules" multiple="true" control="checkedlist"/>
+	</class>
+	<class name="KMessage">
+		<member max="21845" name="contenu" required="0" type="string" />
+		<member max="10" name="dateEnvoi" required="0" type="date" />
+		<member max="11" name="idReport" required="1" type="int" />
+		<member max="11" name="idUtilisateur" required="1" type="int" />
+		<member max="255" name="objet" required="0" type="string" />
+	</class>
+	<class name="KModule">
+		<member max="21845" name="descriptif" required="0" type="string" />
+		<member max="100" name="libelle" required="0" type="string" />
+	</class>
+	<class name="KPage">
+		<member max="255" name="controleur" required="0" type="string" />
+		<member max="100" name="libelle" required="0" type="string" />
+		<member max="11" name="idModule" required="1" type="int" />
+	</class>
+	<class name="KReport">
+		<member name="idUsecase" required="true" control="cmb" type="int"/>
+		<member max="254" name="libelle" required="0" type="string" />
+		<member max="21845" name="descriptif" required="0" type="string" />
+		<member max="21845" name="actualResults" required="0" type="string" />
+		<member max="21845" name="expectedResults" required="0" type="string" />
+		<member max="21845" name="userAction" required="0" type="string" />	
+		<member max="10" name="dateCreation" required="0" type="date" />
+		<member max="11" name="idStatut" required="0" type="int" />
+		<member max="11" name="idUtilisateur" required="1" type="int" />
+		<member max="21845" name="reponseOfficielle" required="0" type="string" />
+	</class>
+	<class name="KStatut">
+		<member max="50" name="libelle" required="0" type="string" />
+	</class>
+	<class name="KUsecase">
+		<member max="11" name="code" required="1" type="string" />
+		<member max="11" name="idApplication" required="1" type="int" />
+		<member max="50" name="libelle" required="1" type="string" />
+	</class>
+	<class name="KUtilisateur">
+		<member max="11" name="idGroupe" required="0" type="int" />
+		<member max="30" name="login" required="1" type="string" />
+		<member max="255" name="mail" required="1" type="string" />
+		<member max="40" name="password" required="1" type="string" />
+		<member name="affectations" control="listform"/>
+	</class>
+</controllers>

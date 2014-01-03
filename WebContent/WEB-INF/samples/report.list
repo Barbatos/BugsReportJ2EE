@@ -1,0 +1,11 @@
+{#func:this.setEditable(true)#}
+{#set:this.listContentUrl="reports.do"#}
+{#set:this.isShowCaption=true#}
+{#func:this.addGroupByMask("{usecase}")#}
+{#mask:<td>{libelle}</td><td>{dateCreation}</td><td>{statut}</td><td>{utilisateur}</td>#}
+{_ajx}
+{_listContent}
+	{_filtre}
+	{_page}
+{/_listContent}
+{_addBtn}

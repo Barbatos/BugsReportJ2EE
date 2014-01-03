@@ -1,0 +1,83 @@
+@CHARSET "UTF-8";
+.KAjaxRequest{
+	font-weight: bolder;
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/request.png') left center no-repeat;
+	cursor: pointer;
+}
+.KAjaxJs{
+	display: block;
+	width: 250px;
+}
+.targetId{
+	width: 250px;
+	font-weight: normal;
+}
+.targetUrl{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/include.png') left center no-repeat;
+	font-weight: bolder; 
+	cursor: pointer;
+}
+.method{
+	color: #315D75;
+	font-weight: bolder;
+}
+.KAjaxFunction{
+	font-weight: bolder;
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/function.png') left center no-repeat;
+}
+.KAjaxIncludeDialog{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/includeDialog.png') left center no-repeat;	
+}
+.KAjaxMessageDialog{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/messageDialog.png') left center no-repeat;	
+}
+.message{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/message.png') left center no-repeat;
+}
+.KAjaxDialogButton{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/buttons.png') left center no-repeat;	
+}
+.KAjaxSelector{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/selector.png') left center no-repeat;
+}
+.KAjaxEvent{
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/fireEvent.png') left center no-repeat;
+}
+.KAjaxShowHide{
+	font-weight: bolder;
+	padding: 4px 0 4px 20px;
+	background: url('../images/siteMap/showhide.png') left center no-repeat;
+}
+#siteMap{
+	-webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
+	box-sizing: border-box;         /* Opera/IE 8+ */
+	border-radius: 5px 5px 5px 5px;
+	-moz-border-radius: 5px 5px 5px 5px;
+	-webkit-border-radius: 5px 5px 5px 5px;
+	min-height: 500px;
+	background-color: white;
+	padding: 10px;
+	margin-top: 10px;
+}
+.breadcrumb{
+	-webkit-border-radius: [borderRadiusSmall];
+	-moz-border-radius: [borderRadiusSmall];
+	border-radius: [borderRadiusSmall];
+	background-color: white;
+	border: 1px inset [bgCtrl];
+	margin-top: 2px;
+	margin-bottom: 2px;
+}
+.title{
+	font-weight: bolder;
+}

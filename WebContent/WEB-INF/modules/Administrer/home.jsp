@@ -8,7 +8,7 @@
                            <span class="ca-icon">U</span>
                            <div class="ca-content">
                                <h2 class="ca-main">Utilisateurs</h2>
-                               <h3 class="ca-sub">Gérer les utilisateurs</h3>
+                               <h3 class="ca-sub">Administrer les utilisateurs</h3>
                            </div>
                        </a>
                    </li>
@@ -17,7 +17,7 @@
                            <span class="ca-icon">S</span>
                            <div class="ca-content">
                                <h2 class="ca-main">Groupes</h2>
-                               <h3 class="ca-sub">Gérer les groupes</h3>
+                               <h3 class="ca-sub">Administrer les groupes</h3>
                            </div>
                        </a>
                   </li>
@@ -26,7 +26,7 @@
                           <span class="ca-icon">S</span>
                           <div class="ca-content">
                               <h2 class="ca-main">Droits</h2>
-                              <h3 class="ca-sub">Gérer les droits</h3>
+                              <h3 class="ca-sub">Administrer les droits</h3>
                           </div>
                       </a>
                   </li>
@@ -35,7 +35,7 @@
                           <span class="ca-icon">S</span>
                           <div class="ca-content">
                               <h2 class="ca-main">Modules</h2>
-                              <h3 class="ca-sub">Gérer les modules</h3>
+                              <h3 class="ca-sub">Administrer les modules</h3>
                           </div>
                       </a>
                   </li>

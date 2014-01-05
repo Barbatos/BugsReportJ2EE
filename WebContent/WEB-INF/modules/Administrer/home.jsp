@@ -12,7 +12,7 @@
                            </div>
                        </a>
                    </li>
-                   <li id="mAdministrer/listeGroupes" title="Administrer les groupes">
+                   <li id="lAdministrer/groupe" title="Administrer les groupes">
                        <a>
                            <span class="ca-icon">S</span>
                            <div class="ca-content">

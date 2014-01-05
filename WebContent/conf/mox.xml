@@ -9,6 +9,7 @@
 		<mapping requestURL="/l{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/list/$1/$2.list" />
 		<mapping requestURL="l{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/list/$1/$2.list" />
 		<mapping requestURL="vutilisateur.do" responseURL="/WEB-INF/views/Administrer/utilisateur.view" />
+		<mapping requestURL="vgroupe.do" responseURL="/WEB-INF/views/Administrer/groupe.view" />
 		<!-- <mapping requestURL="/v{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/views/$1/$2.view" /> -->
 	</mappings>
 	<filters>

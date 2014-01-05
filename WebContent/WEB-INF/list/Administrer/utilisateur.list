@@ -3,7 +3,7 @@
 {#func:this.addSelector()#}
 {#mask:<td>{login}</td><td>{mail}</td><td>{groupe}</td>#}
 {#mask:<td>{login}</td><td>{mail}</td><td>{groupe}</td>#}
-{#set:this.listContentUrl="/lAdministrer/utilisateur.do"#}
+{#set:this.listContentUrl="lAdministrer/utilisateur.do"#}
 {#set:this.editFormUrl="vutilisateur.do"#}
 {#set:this.rowCount=20#}
 {_ajx}

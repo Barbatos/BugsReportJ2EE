@@ -3,7 +3,7 @@
 <div class="container">
    	<div id="menu" class="content">
               <ul class="ca-menu">
-                   <li id="lAdministrer/utilisateurs" title="Administrer les utilisateurs">
+                   <li id="lAdministrer/utilisateur" title="Administrer les utilisateurs">
                        <a>
                            <span class="ca-icon">U</span>
                            <div class="ca-content">

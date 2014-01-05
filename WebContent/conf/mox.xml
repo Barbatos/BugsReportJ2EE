@@ -3,12 +3,13 @@
 	<mappings>
 		<mapping requestURL="index.do" responseURL="/WEB-INF/default/index.jsp" />
 		<mapping requestURL="/home.do" responseURL="/WEB-INF/default/home.jsp" />
-		<mapping requestURL="utilisateur.do" responseURL="/WEB-INF/samples/utilisateur.view" />
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
-		<mapping requestURL="{#(.*?)#}s.do" responseURL="/WEB-INF/samples/$1.list" />
 		
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/$2.jsp" />
 		<mapping requestURL="/l{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/list/$1/$2.list" />
+		<mapping requestURL="l{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/list/$1/$2.list" />
+		<mapping requestURL="vutilisateur.do" responseURL="/WEB-INF/views/Administrer/utilisateur.view" />
+		<!-- <mapping requestURL="/v{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/views/$1/$2.view" /> -->
 	</mappings>
 	<filters>
 	</filters>

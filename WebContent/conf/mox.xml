@@ -34,6 +34,14 @@
                 <fireEvent triggerId="mAdministrer/home" triggerEvent="click" />
             </js>
         </request>
+        <request requestURL="mGerer.do">
+            <js triggerSelector="body" triggerEvent="load">
+                <include targetURL="mGerer/home.do" targetId="mainGerer" transition="opacityShow" />
+            </js>
+            <js triggerSelector="#moduleTitle">
+                <fireEvent triggerId="mGerer/home" triggerEvent="click" />
+            </js>
+        </request>
 		<request requestURL="home.do">
 			<js triggerSelector="#menu li">
 				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>

@@ -11,4 +11,6 @@
 	{_filtre}
 	{_page}
 	{_pageCounter}{_navBarre}
+	{_addBtn}
 {/_listContent}
+

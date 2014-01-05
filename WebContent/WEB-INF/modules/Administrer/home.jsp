@@ -21,7 +21,7 @@
                            </div>
                        </a>
                   </li>
-                  <li id="mAdministrer/listeDroits" title="Administrer les droits">
+                  <li id="lAdministrer/droit" title="Administrer les droits">
                       <a>
                           <span class="ca-icon">S</span>
                           <div class="ca-content">
@@ -30,7 +30,7 @@
                           </div>
                       </a>
                   </li>
-                  <li id="mAdministrer/listeModules" title="Administrer les modules">
+                  <li id="lAdministrer/module" title="Administrer les modules">
                       <a>
                           <span class="ca-icon">S</span>
                           <div class="ca-content">

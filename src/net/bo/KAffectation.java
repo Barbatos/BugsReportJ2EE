@@ -49,7 +49,7 @@ public class KAffectation extends KObject {
 	public int getIdUtilisateur(){
 		return this.idUtilisateur;
 	}
-	/**
+	/**0
 	 * return the value of application
 	 * @return application
 	 */

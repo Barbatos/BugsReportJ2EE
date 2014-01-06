@@ -17,6 +17,7 @@ public class KModule extends KObject {
 	private String libelle;
 	private KListObject<KPage> pages;
 	private KListObject<KGroupe> groupes;
+	
 
 	public KModule() {
 		super();

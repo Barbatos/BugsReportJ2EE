@@ -32,6 +32,6 @@
 			<div><a class="menuItem" id="utilisateurs">Utilisateurs</a></div>
 			<div><a class="menuItem" id="reports">Reports</a></div>
 			<div><a class="menuItem" id="mAdministrer">Admin</a></div>
-			
+			<div><a class="menuItem" id="compte">Compte</a></div>	
 		</div>
 	</div>

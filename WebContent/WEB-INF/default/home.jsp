@@ -3,6 +3,15 @@
 	<div class="container">
     	<div id="menu" class="content">
                <ul class="ca-menu">
+               		<li id="mConnecter" title="Se connecter, s'incrire">
+                        <a>
+                            <span class="ca-icon-bug">S</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Connecter</h2>
+                                <h3 class="ca-sub">Se connecter, s'inscrire</h3>
+                            </div>
+                        </a>
+                    </li>
                     <li id="mSignaler" title="Signaler, remonter un bug">
                         <a>
                             <span class="ca-icon-bug">a</span>

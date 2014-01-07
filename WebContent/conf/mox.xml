@@ -48,5 +48,11 @@
 				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
 			</js>
 		</request>
+		<request requestURL="mConnecter.do">
+			<js triggerSelector="body" triggerEvent="load">
+				<include targetURL="mConnecter/home.do"
+					targetId="mainConnecter" transition="opacityShow">
+				</include></js>
+		</request>
 	</ajax-includes>
 </mainController>

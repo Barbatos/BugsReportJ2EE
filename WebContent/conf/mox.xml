@@ -2,9 +2,13 @@
 <mainController xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://api.kobject.net/xml/mapping-1.0.0.25b.xsd">
 	<mappings>
 		<mapping requestURL="index.do" responseURL="/WEB-INF/default/index.jsp" />
-		<mapping requestURL="/home.do" responseURL="/WEB-INF/default/home.jsp" />
-		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
+		<mapping requestURL="/home.do" responseURL="/WEB-INF/default/home.jsp" defaultTargetId="main" />
+		<mapping requestURL="/homeConnected.do" responseURL="/WEB-INF/default/homeConnected.jsp" classControl="net.controller.MainControl" />
 		
+		<mapping requestURL="/fConnexion.do" responseURL="/WEB-INF/forms/connexion.view" queryString="id=-1,errorMessage= " defaultTargetId="main"/>
+		<mapping requestURL="/fConnexionError.do" responseURL="/WEB-INF/forms/connexion.view" />
+		
+		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/$2.jsp" />
 		
 		<mapping requestURL="/l{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/list/$1/$2.list" />
@@ -15,10 +19,13 @@
 		<mapping requestURL="vapplication.do" responseURL="/WEB-INF/views/Gerer/application.view" />
 		<mapping requestURL="vusecase.do" responseURL="/WEB-INF/views/Gerer/usecase.view" />
 		<!-- <mapping requestURL="/v{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/views/$1/$2.view" /> -->
+		
+		<mapping requestURL="enter.do" responseURL="/enter.act"/>
 	</mappings>
 	<filters>
 	</filters>
 	<ajax-includes>
+		<!-- 
 		<request requestURL="index.do">
 			<js triggerSelector="body" triggerEvent="load">
 				<selector selector="#contentMenu .menuItem" selectedStyle="{'color':'black','backgroundColor':'#FFEFC7'}" startIndex="0">
@@ -28,6 +35,18 @@
 			</js>
 			<js triggerSelector="#logo">
 				<fireEvent triggerId="home" triggerEvent="click"/>
+			</js>
+		</request>
+		-->
+		<request requestURL="index.do">
+			<js triggerSelector="body" triggerEvent="load">
+				<include targetURL="homeConnected.do" targetId="main"/>
+			</js>
+			<js triggerSelector="#contentMenu .menuItem">
+				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
+			</js>
+			<js triggerSelector="#logo">
+				<fireEvent triggerId="homeConnected" triggerEvent="click"/>
 			</js>
 		</request>
 		<request requestURL="mAdministrer.do">
@@ -51,11 +70,10 @@
 				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
 			</js>
 		</request>
-		<request requestURL="mConnecter.do">
-			<js triggerSelector="body" triggerEvent="load">
-				<include targetURL="mConnecter/home.do"
-					targetId="mainConnecter" transition="opacityShow">
-				</include></js>
+		<request requestURL="fConnexion{#.*?#}.do">
+			<js triggerSelector="#btConnexion">
+				<include targetURL="enter.do" targetId="main" formName="frmConnexion" method="POST" condition="vfrmConnexion.validate()"/>
+			</js>
 		</request>
 	</ajax-includes>
 </mainController>

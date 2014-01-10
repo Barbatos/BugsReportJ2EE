@@ -3,7 +3,7 @@
 <div class="container">
 	<div id="menu" class="content">
 		<ul class="ca-menu">
-			<li id="mConnecter/connecter" title="Se connecter à son compte">
+			<li id="fConnexion" title="Se connecter à son compte">
 			    <a>
 					<span class="ca-icon">S</span>
 			        <div class="ca-content">
@@ -12,7 +12,7 @@
 			        </div>
 			    </a>
 			</li>
-			<li id="mConnecter/inscrire" title="Créer un nouveau compte">
+			<li id="fInscription" title="Créer un nouveau compte">
 			    <a>
 					<span class="ca-icon">S</span>
 			        <div class="ca-content">

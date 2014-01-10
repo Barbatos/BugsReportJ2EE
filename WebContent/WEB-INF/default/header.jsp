@@ -28,7 +28,7 @@
 </div>
 	<div id="topMenu">
 		<div id="contentMenu">
-			<div><a class="menuItem" id="home">Home</a></div>
+			<div><a class="menuItem" id="homeConnected">Home</a></div>
 			<div><a class="menuItem" id="utilisateurs">Utilisateurs</a></div>
 			<div><a class="menuItem" id="reports">Reports</a></div>
 			<div><a class="menuItem" id="mAdministrer">Admin</a></div>

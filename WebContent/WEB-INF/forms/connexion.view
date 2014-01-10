@@ -1,0 +1,20 @@
+{#className:net.bo.KUtilisateur#}
+{#koDisplay:net.display.ConnexionDisplay#}
+{#set:this.ajaxIncludes=true#}
+{#formName:frmConnexion#}
+{_form}
+<fieldset>
+<legend id="fsFrmConnexion">Connexion à l'application:</legend>
+<div id="errors">
+<div class="infoMessage">Entrez votre login et votre password</div>
+%errorMessage%
+<div id="error-frmConnexion-password" class="displayMessage"></div>
+<div id="error-frmConnexion-login" class="displayMessage"></div>
+</div>
+{login}
+{password}
+<div class="boxButtons">
+	<div class="btn" id="btConnexion"><span>Se connecter à l'application</span></div>
+</div>
+</fieldset>
+{/_form}

@@ -55,7 +55,7 @@ public class KGroupe extends KObject {
 	}
 	@Override
 	public String toString() {
-		return " [libelle] = " + libelle;
+		return libelle;
 	}
 	public KListObject<KModule> getModules() {
 		return modules;

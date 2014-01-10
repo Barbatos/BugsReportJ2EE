@@ -37,13 +37,14 @@ public class Enter extends KSAction{
 		super.doGet(request, response);
 		String login = KRequest.GETPOST("login", request);
 		String password = KRequest.GETPOST("password", request);
+		
 		if(KString.isNotNull(password) && KString.isNotNull(login)){
 			KUtilisateur utilisateur = KoSession.kloadOne(KUtilisateur.class, "password='"+password+"' and login='"+login+"'");
+			
 			if(utilisateur.isLoaded()){
-				System.out.println("====================== OK");
 				KAffectation affectation = utilisateur.getAffectations().selectFirst("login="+login+", password="+password+"");
+				
 				if(affectation != null){
-					System.out.println("====================== OK2");
 					session.setAttribute("idUtilisateur", utilisateur.getId());
 					KRequest.forward("/homeConnected.do", request, response);
 					return;

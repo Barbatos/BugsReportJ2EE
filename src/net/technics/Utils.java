@@ -19,7 +19,6 @@ public class Utils {
 	
 	public static String getIdUtilisateur(HttpServletRequest request){
 		Object result = request.getSession().getAttribute("idUtilisateur");
-		System.out.println("deeeeeeeeerp");
 		if(result != null)
 			return result+"";
 		else

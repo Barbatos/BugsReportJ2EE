@@ -1,7 +1,7 @@
 #Fichier de configuration KoCreator version 1.0.0.25a
-#Fri Jan 10 15:23:41 CET 2014
+#Fri Jan 10 15:48:22 CET 2014
 actionsName=action.do
-base=bugsreport
+base=bugsreportjee
 cacheType=1
 classes=affectation;application;droit;groupe;message;module;page;report;statut;usecase;utilisateur
 clientDebug=false
@@ -15,21 +15,21 @@ debug=true
 erFile=conf/validation/er.properties
 footerURL=WEB-INF/default/footer.jsp
 headerURL=WEB-INF/default/header.jsp
-host=127.0.0.1
+host=better.call.barbatos.fr
 koDateFormat=dd/MM/yyyy
 logFormat=html
 mappingFile=conf/mox.xml
 messagesFile=conf/validation/messages.properties
 nullValue=&nbsp;
 package=net.bo
-password=
-pluginVersion=1.0.0.25a
+password=loljeelol
+pluginVersion=?.?.?.?
 port=3306
 schema.ddl=validate
 sqlDateFormat=yyyy-MM-dd
 useCache=false
 useLog=true
 useSetters=false
-user=root
+user=j2ee
 validationFile=conf/kox.xml
 webApp=true

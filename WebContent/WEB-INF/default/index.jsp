@@ -2,6 +2,6 @@
     pageEncoding="UTF-8"%>
 <%@ include file="header.jsp"%>
 <div id="main">
-
+	<%=KoHttp.kajaxIncludes(request)%>
 </div>
 <%@ include file="footer.jsp"%>

@@ -8,6 +8,8 @@
 		<mapping requestURL="/fConnexion.do" responseURL="/WEB-INF/forms/connexion.view" queryString="id=-1,errorMessage= " defaultTargetId="main"/>
 		<mapping requestURL="/fConnexionError.do" responseURL="/WEB-INF/forms/connexion.view" />
 		
+		<mapping requestURL="/actions/action.do" responseURL="/Action.act"/>
+		
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/$2.jsp" />
 		
@@ -66,6 +68,11 @@
             </js>
         </request>
 		<request requestURL="home.do">
+			<js triggerSelector="#menu li">
+				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
+			</js>
+		</request>
+		<request requestURL="homeConnected.do">
 			<js triggerSelector="#menu li">
 				<include targetURL="{js:Forms.Utils.getAttr(target,'id')}.do" targetId="main"/>
 			</js>

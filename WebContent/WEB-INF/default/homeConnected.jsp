@@ -49,6 +49,15 @@
                             </div>
                         </a>
                     </li>
+                    <li id="actions/exit/action" title="Se déconnecter">
+                        <a>
+                            <span class="ca-icon"><</span>
+                            <div class="ca-content">
+                                <h2 class="ca-main">Déconnexion</h2>
+                                <h3 class="ca-sub">Se déconnecter de l'application</h3>
+                            </div>
+                        </a>
+                    </li>
                 </ul>
            </div>
 		</div>

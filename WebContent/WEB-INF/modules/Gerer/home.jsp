@@ -3,7 +3,7 @@
 <div class="container">
 	<div id="menu" class="content">
 		<ul class="ca-menu">
-			<li id="mGerer/application" title="Gerer les applications">
+			<li id="lGerer/application" title="Gerer les applications">
 			    <a>
 					<span class="ca-icon">S</span>
 			        <div class="ca-content">
@@ -12,7 +12,7 @@
 			        </div>
 			    </a>
 			</li>
-			<li id="mGerer/cas" title="Gerer les cas d'utilisation">
+			<li id="lGerer/usecase" title="Gerer les cas d'utilisation">
 			    <a>
 					<span class="ca-icon">S</span>
 			        <div class="ca-content">
@@ -24,3 +24,4 @@
 		</ul>
 	</div>
 </div>
+<%= KoHttp.kajaxIncludes(request) %>

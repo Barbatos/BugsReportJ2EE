@@ -42,13 +42,9 @@ public class Enter extends KSAction{
 			KUtilisateur utilisateur = KoSession.kloadOne(KUtilisateur.class, "password='"+password+"' and login='"+login+"'");
 			
 			if(utilisateur.isLoaded()){
-				KAffectation affectation = utilisateur.getAffectations().selectFirst("login="+login+", password="+password+"");
-				
-				if(affectation != null){
-					session.setAttribute("idUtilisateur", utilisateur.getId());
-					KRequest.forward("/homeConnected.do", request, response);
-					return;
-				}
+				session.setAttribute("idUtilisateur", utilisateur.getId());
+				KRequest.forward("/homeConnected.do", request, response);
+				return;
 			}
 		}
 		KRequest.forward("/fConnexionError.do", request, response,"errorMessage=Paramétres de connexion invalides&id=-1&_ajx=true","GET");

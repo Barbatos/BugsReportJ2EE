@@ -25,6 +25,8 @@
 		<!-- <mapping requestURL="/v{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/views/$1/$2.view" /> -->
 		
 		<mapping requestURL="enter.do" responseURL="/enter.act"/>
+		<mapping requestURL="creerUtilisateur.do" responseURL="/creerUtilisateur.act" />
+		<mapping requestURL="exit.do" responseURL="/exit.act" />
 	</mappings>
 	<filters>
 	</filters>
@@ -86,7 +88,7 @@
 		</request>
 		<request requestURL="fInscription.do">
 			<js triggerSelector="#btSubmitInscription">
-				<include targetURL="actions/creerUtilisateur/action.do" formName="frmKUtilisateur" targetId="divInscription" method="POST" condition="vfrmKUtilisateur.validate()" transition="translate">
+				<include targetURL="creerUtilisateur.do" formName="frmKUtilisateur" targetId="divInscription" method="POST" condition="vfrmKUtilisateur.validate()" transition="translate">
 					<include targetURL="fConnexion.do" />
 				</include>
 			</js>

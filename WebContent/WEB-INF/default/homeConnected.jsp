@@ -49,7 +49,7 @@
                             </div>
                         </a>
                     </li>
-                    <li id="actions/exit/action" title="Se déconnecter">
+                    <li id="exit" title="Se déconnecter">
                         <a>
                             <span class="ca-icon"><</span>
                             <div class="ca-content">

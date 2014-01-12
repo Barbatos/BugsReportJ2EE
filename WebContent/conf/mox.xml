@@ -10,8 +10,6 @@
 		
 		<mapping requestURL="/fInscription.do" responseURL="/WEB-INF/forms/inscription.view" classControl="net.controller.UtilisateurExists"/>
 		
-		<mapping requestURL="/actions/action.do" responseURL="/Action.act"/>
-		
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/$2.jsp" />
 		
@@ -96,5 +94,22 @@
 				<function script="vfrmKUtilisateur.validate();"/>
 			</js>
 		</request>
+		<request requestURL="lAdministrer/utilisateur.do">
+			<js triggerSelector="document" triggerEvent="keyup" keyCode="13">
+	            <messageDialog title="Suppression d'utilisateur" transition="rotation10">
+	                <button caption="Oui">
+	                    <deleteOne virtualURL="deleteUtilisateur.do" kobjectShortClassName="KUtilisateur" targetId="_ajx">
+	                        <include targetURL="utilisateurRefresh.do" targetId="_ajxContent"/>
+	                    </deleteOne>
+	                    <function script="return true;"/>
+	                </button>
+	                <button caption="Annuler">
+	                    <function script="return true;"/>
+	                </button>
+	                <message><![CDATA['Supprimer l\'utilisateur <b>'+Forms.Utils.getFirstChild($('list-KUtilisateur').selector.getSelectedElement(),'td').innerHTML+'</b> ?'
+	                ]]></message>
+	            </messageDialog>
+	        </js>
+	     </request>
 	</ajax-includes>
 </mainController>

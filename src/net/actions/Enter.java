@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import net.bo.KAffectation;
 import net.bo.KUtilisateur;
 import net.ko.framework.KoSession;
 import net.ko.http.objects.KRequest;

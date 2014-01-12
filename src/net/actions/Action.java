@@ -13,9 +13,7 @@ import org.apache.catalina.Globals;
 import net.bo.KUtilisateur;
 import net.ko.framework.KoSession;
 import net.ko.http.objects.KRequest;
-import net.ko.http.servlets.KSAction;
 import net.ko.utils.KString;
-import net.technics.Utils;
 
 @WebServlet(name = "Action", urlPatterns = { "*.act" })
 public class Action extends HttpServlet {

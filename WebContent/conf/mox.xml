@@ -8,6 +8,8 @@
 		<mapping requestURL="/fConnexion.do" responseURL="/WEB-INF/forms/connexion.view" queryString="id=-1,errorMessage= " defaultTargetId="main"/>
 		<mapping requestURL="/fConnexionError.do" responseURL="/WEB-INF/forms/connexion.view" />
 		
+		<mapping requestURL="/fInscription.do" responseURL="/WEB-INF/forms/inscription.view" classControl="net.controller.UtilisateurExists"/>
+		
 		<mapping requestURL="/actions/action.do" responseURL="/Action.act"/>
 		
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
@@ -80,6 +82,16 @@
 		<request requestURL="fConnexion{#.*?#}.do">
 			<js triggerSelector="#btConnexion">
 				<include targetURL="enter.do" targetId="main" formName="frmConnexion" method="POST" condition="vfrmConnexion.validate()"/>
+			</js>
+		</request>
+		<request requestURL="fInscription.do">
+			<js triggerSelector="#btSubmitInscription">
+				<include targetURL="actions/creerUtilisateur/action.do" formName="frmKUtilisateur" targetId="divInscription" method="POST" condition="vfrmKUtilisateur.validate()" transition="translate">
+					<include targetURL="fConnexion.do" />
+				</include>
+			</js>
+			<js triggerSelector="#verifDispoLogin">
+				<function script="vfrmKUtilisateur.validate();"/>
 			</js>
 		</request>
 	</ajax-includes>

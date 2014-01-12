@@ -1,0 +1,21 @@
+{#set:this.ajaxIncludes=true#}
+{#className:net.bo.KUtilisateur#}
+{#koDisplay:net.display.InscriptionDisplay#}
+<div id="divInscription">
+{_form}
+{_fieldset}
+<div id="errors">
+<div class="infoMessage">Entrez un login et un mot de passe pour vous inscrire:</div>
+<div id="error-frmKUtilisateur-login" class="displayMessage"></div>
+<div id="error-frmKUtilisateur-password" class="displayMessage"></div>
+</div>
+<div style="display:inline-block">{name:login,options:"style='width:400px;'"}</div><a id="verifDispoLogin">Vérifier la disponibilité du login...</a>
+<div>{name:mail, options:"style='width:400px;'"}</div>
+<div>{name:password, options:"style='width:400px;'"}</div>
+<div class="boxButtons">
+	<div class="btn" id="btSubmitInscription"><span>Valider la création</span></div>
+</div>
+{/_fieldset}
+{/_form}
+</div>
+

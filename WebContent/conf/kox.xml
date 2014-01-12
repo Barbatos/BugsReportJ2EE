@@ -1,49 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <controllers xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:noNamespaceSchemaLocation="http://api.kobject.net/xml/controller-1.0.0.25b.xsd">
-	<class name="KTester">
+	<class name="KTester" caption="Tester">
 		<member control="cmb" name="_cls" type="string" />
 		<member control="range" max="6" min="0" name="_depth" />
 		<member name="_useCache" type="boolean" />
 		<member control="checkedlist" multiple="true" name="_field" />
 	</class>
-	<class name="KAffectation">
+	<class name="KAffectation" caption="Affectation">
 		<member max="11" name="idApplication" required="1" type="int" control="cmb"/>
 		<member max="10" name="dateAffectation" required="0" type="date" />
 		<member max="11" name="idUtilisateur" required="1" type="int" control="hidden"/>
 	</class>
-	<class name="KApplication">
+	<class name="KApplication" caption="Application">
 		<member max="10" name="dateCreation" required="1" type="date" />
 		<member max="5592405" name="descriptif" required="1" type="string" />
 		<member max="50" name="libelle" required="1" type="string" />
 		<member max="20" name="version" required="1" type="string" />
 		<member name="usecases" multiple="true"/>
 	</class>
-	<class name="KDroit">
+	<class name="KDroit" caption="Droit">
 		<member max="11" name="idGroupe" required="1" type="int" />
 		<member max="11" name="idModule" required="1" type="int" />
 	</class>
-	<class name="KGroupe">
+	<class name="KGroupe" caption="Groupe">
 		<member max="50" name="libelle" required="1" type="string" />
 		<member name="modules" multiple="true" control="checkedlist"/>
 	</class>
-	<class name="KMessage">
+	<class name="KMessage" caption="Message">
 		<member max="21845" name="contenu" required="0" type="string" />
 		<member max="10" name="dateEnvoi" required="0" type="date" />
 		<member max="11" name="idReport" required="1" type="int" />
 		<member max="11" name="idUtilisateur" required="1" type="int" />
 		<member max="255" name="objet" required="0" type="string" />
 	</class>
-	<class name="KModule">
+	<class name="KModule" caption="Module">
 		<member max="21845" name="descriptif" required="0" type="string" />
 		<member max="100" name="libelle" required="0" type="string" />
 	</class>
-	<class name="KPage">
+	<class name="KPage" caption="Page">
 		<member max="255" name="controleur" required="0" type="string" />
 		<member max="100" name="libelle" required="0" type="string" />
 		<member max="11" name="idModule" required="1" type="int" />
 	</class>
-	<class name="KReport">
+	<class name="KReport" caption="Report">
 		<member name="idUsecase" required="true" control="cmb" type="int"/>
 		<member max="254" name="libelle" required="0" type="string" />
 		<member max="21845" name="descriptif" required="0" type="string" />
@@ -55,19 +55,19 @@
 		<member max="11" name="idUtilisateur" required="1" type="int" />
 		<member max="21845" name="reponseOfficielle" required="0" type="string" />
 	</class>
-	<class name="KStatut">
+	<class name="KStatut" caption="Statut">
 		<member max="50" name="libelle" required="0" type="string" />
 	</class>
-	<class name="KUsecase">
+	<class name="KUsecase" caption="Use Case">
 		<member max="11" name="code" required="1" type="string" />
 		<member max="11" name="idApplication" required="1" type="int" />
 		<member max="50" name="libelle" required="1" type="string" />
 	</class>
-	<class name="KUtilisateur">
-		<member max="11" name="idGroupe" required="0" type="int" />
-		<member max="30" name="login" required="1" type="string" />
-		<member max="255" name="mail" required="1" type="string" />
-		<member max="40" name="password" required="1" type="string" />
+	<class name="KUtilisateur" caption="Utilisateur" validator="net.validator.UtilisateurValidator" validateOn="submit">
+		<member max="11" name="idGroupe" required="0" type="int" caption="Groupe" />
+		<member max="30" name="login" required="1" type="string" caption="Nom d'utilisateur" validate="validateLogin" />
+		<member max="255" name="mail" required="1" type="mail" caption="Adresse email" />
+		<member max="40" name="password" required="1" type="string" caption="Mot de passe" />
 		<member name="affectations" control="listform"/>
 	</class>
 </controllers>

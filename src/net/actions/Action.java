@@ -19,15 +19,18 @@ public class Action extends KSAction {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public void createUtilisateur() throws ServletException, IOException{
+	public void creerUtilisateur() throws ServletException, IOException{
 		String password = KRequest.GETPOST("password", request);
 		String login 	= KRequest.GETPOST("login", request);
+		String email    = KRequest.GETPOST("mail", request);
 		
-		if(KString.isNotNull(password) && KString.isNotNull(login) && KRequest.isPost(request)){
+		if(KString.isNotNull(password) && KString.isNotNull(login) && KString.isNotNull(email) && KRequest.isPost(request)){
 			KUtilisateur utilisateur = new KUtilisateur();
 			
 			utilisateur.setPassword(password);
 			utilisateur.setLogin(login);
+			utilisateur.setIdGroupe(1);
+			utilisateur.setMail(email);
 			KoSession.add(utilisateur);
 			
 			session.setAttribute("idUtilisateur", utilisateur.getId());

@@ -39,12 +39,6 @@ public class Action extends KSAction {
 	}
 	
 	public void exit() throws ServletException, IOException{
-		KUtilisateur utilisateur = KoSession.kloadOne(KUtilisateur.class, "id="+Utils.getIdUtilisateur(request));
-		
-		if(utilisateur.isLoaded()){
-			KoSession.delete(utilisateur);
-		}
-		
 		session.invalidate();
         KRequest.forward("/index.do", request, response);
 	}

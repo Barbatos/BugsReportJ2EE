@@ -21,6 +21,15 @@
 			        </div>
 			    </a>
 			</li>
+			<li id="lGerer/report" title="Gerer les reports de bug">
+			    <a>
+					<span class="ca-icon">S</span>
+			        <div class="ca-content">
+			            <h2 class="ca-main">Report</h2>
+			            <h3 class="ca-sub">Gérer les reports de bug</h3>
+			        </div>
+			    </a>
+			</li>
 		</ul>
 	</div>
 </div>

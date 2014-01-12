@@ -1,0 +1,5 @@
+{_form}
+{_fieldset}
+{libelle}{actualResults}{expectedResults}{dateCreation}{idStatut}{idUtilisateur}
+{/_fieldset}
+{/_form}

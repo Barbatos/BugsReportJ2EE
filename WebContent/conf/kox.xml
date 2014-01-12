@@ -65,7 +65,7 @@
 	</class>
 	<class name="KUtilisateur" caption="Utilisateur" validator="net.validator.UtilisateurValidator" validateOn="submit">
 		<member max="11" name="idGroupe" required="0" type="int" caption="Groupe" />
-		<member max="30" name="login" required="1" type="string" caption="Nom d'utilisateur" validate="validateLogin" />
+		<member max="30" name="login" required="1" type="string" caption="Nom d'utilisateur" />
 		<member max="255" name="mail" required="1" type="mail" caption="Adresse email" />
 		<member max="40" name="password" required="1" type="string" caption="Mot de passe" />
 		<member name="affectations" control="listform"/>

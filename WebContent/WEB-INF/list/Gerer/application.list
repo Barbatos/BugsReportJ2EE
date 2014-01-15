@@ -1,8 +1,8 @@
 {#func:this.setEditable(true)#}
 {#set:this.isShowCaption=true#}
 {#func:this.addSelector()#}
-{#mask:<td>{dateCreation}</td><td>{libelle}</td><td>{version}</td>#}
-{#mask:<td>{dateCreation}</td><td>{libelle}</td><td>{version}</td>#}
+{#mask:<td>{libelle}</td><td>{dateCreation}</td><td>{version}</td>#}
+{#mask:<td>{libelle}</td><td>{dateCreation}</td><td>{version}</td>#}
 {#set:this.listContentUrl="lGerer/application.do"#}
 {#set:this.editFormUrl="vapplication.do"#}
 {#set:this.rowCount=20#}

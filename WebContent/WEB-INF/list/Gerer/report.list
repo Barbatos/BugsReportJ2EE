@@ -1,8 +1,8 @@
 {#func:this.setEditable(true)#}
 {#set:this.isShowCaption=true#}
 {#func:this.addSelector()#}
-{#mask:<td>{libelle}</td><td>{actualResults}</td><td>{expectedResults}</td><td>{dateCreation}</td><td>{idStatut}</td><td>{idUtilisateur}</td>#}
-{#mask:<td>{libelle}</td><td>{actualResults}</td><td>{expectedResults}</td><td>{dateCreation}</td><td>{idStatut}</td><td>{idUtilisateur}</td>#}
+{#mask:<td>{libelle}</td><td>{actualResults}</td><td>{expectedResults}</td><td>{dateCreation}</td>#}
+{#mask:<td>{libelle}</td><td>{actualResults}</td><td>{expectedResults}</td><td>{dateCreation}</td>#}
 {#set:this.listContentUrl="lGerer/usecase.do"#}
 {#set:this.editFormUrl="vusecase.do"#}
 {#set:this.rowCount=20#}

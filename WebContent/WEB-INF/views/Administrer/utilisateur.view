@@ -1,5 +1,6 @@
 {_form}
 {_fieldset}
 {login}{password}{mail}{idGroupe}{affectations}
+{_deleteCk}
 {/_fieldset}
 {/_form}

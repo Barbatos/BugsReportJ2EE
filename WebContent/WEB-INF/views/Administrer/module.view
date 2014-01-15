@@ -1,5 +1,6 @@
 {_form}
 {_fieldset}
 {libelle}{descriptif}
+{_deleteCk}
 {/_fieldset}
 {/_form}

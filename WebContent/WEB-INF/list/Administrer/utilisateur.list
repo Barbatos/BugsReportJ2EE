@@ -1,6 +1,6 @@
 {#func:this.setEditable(true)#}
 {#set:this.isShowCaption=true#}
-{#func:this.addSelector()#}
+{#func:this.addSelector(13)#}
 {#mask:<td>{login}</td><td>{mail}</td><td>{groupe}</td>#}
 {#mask:<td>{login}</td><td>{mail}</td><td>{groupe}</td>#}
 {#set:this.listContentUrl="lAdministrer/utilisateur.do"#}

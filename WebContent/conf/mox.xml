@@ -10,6 +10,8 @@
 		
 		<mapping requestURL="/fInscription.do" responseURL="/WEB-INF/forms/inscription.view" classControl="net.controller.UtilisateurExists"/>
 		
+		<mapping requestURL="/fReport.do" responseURL="/WEB-INF/forms/report.view"/>
+		
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/index.jsp" />
 		<mapping requestURL="/m{#([a-zA-Z0-9]+)#}/{#([a-zA-Z0-9]+)#}.do" responseURL="/WEB-INF/modules/$1/$2.jsp" />
 		

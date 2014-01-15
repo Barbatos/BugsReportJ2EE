@@ -4,7 +4,7 @@
 	<div class="container">
     	<div id="menu" class="content">
                <ul class="ca-menu">
-                    <li id="mSignaler" title="Signaler, remonter un bug">
+                    <li id="fReport" title="Signaler, remonter un bug">
                         <a>
                             <span class="ca-icon-bug">a</span>
                             <div class="ca-content">

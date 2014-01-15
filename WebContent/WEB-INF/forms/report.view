@@ -1,0 +1,24 @@
+{#set:this.ajaxIncludes=true#}
+{#className:net.bo.KReportr#}
+{#koDisplay:net.display.ReportDisplay#}
+<div id="divReport">
+{_form}
+{_fieldset}
+<div id="errors">
+<div class="infoMessage">Veuillez remplir le formulaire pour signaler un bug:</div>
+<div id="error-frmKReport-libelle" class="displayMessage"></div>
+<div id="error-frmKReport-descriptif" class="displayMessage"></div>
+<div id="error-frmKReport-actualResults" class="displayMessage"></div>
+<div id="error-frmKReport-expectedResults" class="displayMessage"></div>
+<div id="error-frmKReport-userAction" class="displayMessage"></div>
+</div>
+<div style="display:inline-block">{name:login,options:"style='width:400px;'"}</div><a id="verifDispoLogin">Vérifier la disponibilité du login...</a>
+<div>{name:mail, options:"style='width:400px;'"}</div>
+<div>{name:password, options:"style='width:400px;'"}</div>
+<div class="boxButtons">
+	<div class="btn" id="btSubmitInscription"><span>Valider la création</span></div>
+</div>
+{/_fieldset}
+{/_form}
+</div>
+

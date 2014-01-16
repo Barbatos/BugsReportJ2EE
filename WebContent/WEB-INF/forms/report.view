@@ -12,6 +12,15 @@
 <div id="error-frmKReport-expectedResults" class="displayMessage"></div>
 <div id="error-frmKReport-userAction" class="displayMessage"></div>
 </div>
+{libelle}
+{descriptif}
+{actualResults}
+{expectedResults}
+{userAction}
+{dateCreation}
+{idStatut}
+{idUtilisateur}
+{reponseOfficielle}
 <div class="boxButtons">
 	<div class="btn" id="btSubmitInscription"><span>Valider la création</span></div>
 </div>

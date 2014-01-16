@@ -13,7 +13,7 @@
                             </div>
                         </a>
                     </li>
-                    <li id="mEchanger" title="Échanges sur les remontées de bugs existantes">
+                    <li id="lEchanger/message" title="Échanges sur les remontées de bugs existantes">
                         <a>
                             <span class="ca-icon">@</span>
                             <div class="ca-content">

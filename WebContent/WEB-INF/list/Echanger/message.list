@@ -1,0 +1,15 @@
+{#func:this.setEditable(true)#}
+{#set:this.isShowCaption=true#}
+{#func:this.addSelector()#}
+{#mask:<td>{libelle}</td><td>{message}</td>#}
+{#mask:<td>{libelle}</td><td>{message}</td>#}
+{#set:this.listContentUrl="lEchanger/message.do"#}
+{#set:this.editFormUrl="vmessage.do"#}
+{#set:this.rowCount=20#}
+{_ajx}
+{_listContent}
+	{_filtre}
+	{_page}
+	{_pageCounter}{_navBarre}
+	{_addBtn}
+{/_listContent}

@@ -1,7 +1,7 @@
 package net.actions;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -9,13 +9,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.apache.catalina.Globals;
-
 import net.bo.KReport;
 import net.bo.KUtilisateur;
 import net.ko.framework.KoSession;
 import net.ko.http.objects.KRequest;
 import net.ko.utils.KString;
+
+import org.apache.catalina.Globals;
 
 @WebServlet(name = "Action", urlPatterns = { "*.act" })
 public class Action extends HttpServlet {
@@ -109,7 +109,10 @@ public class Action extends HttpServlet {
 		String actualResults = KRequest.GETPOST("actualResults", request);
 		String expectedResults = KRequest.GETPOST("expectedResults", request);
 		String userAction = KRequest.GETPOST("userAction", request);
-		Date dateCreation = KRequest.GETPOST("dateCreation", request);
+		//test
+		String format = "dd/MM/yyyy"; 
+		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
+		java.sql.Date dateCreation = (java.sql.Date) new java.util.Date();
 		int idStatut = KRequest.GETPOST("idStatut", request);
 		int idUtilisateur = KRequest.GETPOST("idUtilisateur", request);
 		

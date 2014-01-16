@@ -109,14 +109,12 @@ public class Action extends HttpServlet {
 		String actualResults = KRequest.GETPOST("actualResults", request);
 		String expectedResults = KRequest.GETPOST("expectedResults", request);
 		String userAction = KRequest.GETPOST("userAction", request);
-		//test
-		String format = "dd/MM/yyyy"; 
-		java.text.SimpleDateFormat formater = new java.text.SimpleDateFormat( format ); 
 		java.sql.Date dateCreation = (java.sql.Date) new java.util.Date();
-		int idStatut = KRequest.GETPOST("idStatut", request);
-		int idUtilisateur = KRequest.GETPOST("idUtilisateur", request);
+		int idStatut = KRequest.GETPOST("idStatut", request, 2);
+		//int idUsecase = KRequest.GETPOST("idUsecase", request);
+		//int idUtilisateur = KRequest.GETPOST("idUtilisateur", request);
 		
-		if(KString.isNotNull(libelle) && KString.isNotNull(descriptif) && KString.isNotNull(actualResults) && KString.isNotNull(expectedResults) && KString.isNotNull(userAction) && KRequest.isPost(request)){
+		if(KString.isNotNull(libelle) && KString.isNotNull(descriptif) && KString.isNotNull(actualResults) && KString.isNotNull(userAction) && KRequest.isPost(request)){
 			KReport report = new KReport();
 			
 			report.setLibelle(libelle);
@@ -126,7 +124,8 @@ public class Action extends HttpServlet {
 			report.setUserAction(userAction);
 			report.setDateCreation(dateCreation);
 			report.setIdStatut(idStatut);
-			report.setIdUtilisateur(idUtilisateur);
+			//report.setIdUsecase(idUsecase);
+			//report.setIdUtilisateur(idUtilisateur);
 			
 			KoSession.add(report);
 			

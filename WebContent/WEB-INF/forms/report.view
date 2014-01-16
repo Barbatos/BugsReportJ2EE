@@ -17,9 +17,8 @@
 {actualResults}
 {expectedResults}
 {userAction}
-{dateCreation}
+{idUseCase}
 {idStatut}
-{idUtilisateur}
 <div class="boxButtons">
 	<div class="btn" id="btSubmitReport"><span>Valider la création</span></div>
 </div>

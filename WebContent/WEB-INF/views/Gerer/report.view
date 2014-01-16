@@ -1,5 +1,5 @@
 {_form}
 {_fieldset}
-{libelle}{descriptif}{actualResults}{expectedResults}{userAction}{dateCreation}{idStatut}{idUtilisateur}
+{libelle}{descriptif}{actualResults}{expectedResults}{userAction}{idUseCase}{idStatut}
 {/_fieldset}
 {/_form}

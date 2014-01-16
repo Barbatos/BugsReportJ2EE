@@ -20,9 +20,8 @@
 {dateCreation}
 {idStatut}
 {idUtilisateur}
-{reponseOfficielle}
 <div class="boxButtons">
-	<div class="btn" id="btSubmitInscription"><span>Valider la création</span></div>
+	<div class="btn" id="btSubmitReport"><span>Valider la création</span></div>
 </div>
 {/_fieldset}
 {/_form}

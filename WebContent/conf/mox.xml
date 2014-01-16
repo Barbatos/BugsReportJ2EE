@@ -26,6 +26,7 @@
 		
 		<mapping requestURL="enter.do" responseURL="/enter.act"/>
 		<mapping requestURL="creerUtilisateur.do" responseURL="/creerUtilisateur.act" />
+		<mapping requestURL="creerReport.do" responseURL="/creerReport.act" />
 		<mapping requestURL="exit.do" responseURL="/exit.act" />
 	</mappings>
 	<filters>
@@ -94,6 +95,13 @@
 			</js>
 			<js triggerSelector="#verifDispoLogin">
 				<function script="vfrmKUtilisateur.validate();"/>
+			</js>
+		</request>
+		<request requestURL="fReport.do">
+			<js triggerSelector="#btSubmitReport">
+				<include targetURL="creerReport.do" formName="frmKReport" targetId="divReport" method="POST" condition="vfrmKReport.validate()" transition="translate">
+					<include targetURL="/homeConnected.do" />
+				</include>
 			</js>
 		</request>
 	</ajax-includes>

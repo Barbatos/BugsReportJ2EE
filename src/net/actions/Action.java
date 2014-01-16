@@ -1,6 +1,7 @@
 package net.actions;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.catalina.Globals;
 
+import net.bo.KReport;
 import net.bo.KUtilisateur;
 import net.ko.framework.KoSession;
 import net.ko.http.objects.KRequest;
@@ -65,6 +67,9 @@ public class Action extends HttpServlet {
 				creerUtilisateur(request, response, out);
 				break;
 				
+			case "creerReport":
+				break;
+				
 			case "exit":
 				exit(request, response);
 				break;
@@ -95,6 +100,39 @@ public class Action extends HttpServlet {
 		}
 		else {
 			KRequest.forward("/fConnexion.do", request, response, "_ajx=true");
+		}
+	}
+	
+	public void creerReport(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
+		String libelle = KRequest.GETPOST("libelle", request);
+		String descriptif = KRequest.GETPOST("descriptif", request);
+		String actualResults = KRequest.GETPOST("actualResults", request);
+		String expectedResults = KRequest.GETPOST("expectedResults", request);
+		String userAction = KRequest.GETPOST("userAction", request);
+		Date dateCreation = KRequest.GETPOST("dateCreation", request);
+		int idStatut = KRequest.GETPOST("idStatut", request);
+		int idUtilisateur = KRequest.GETPOST("idUtilisateur", request);
+		
+		if(KString.isNotNull(libelle) && KString.isNotNull(descriptif) && KString.isNotNull(actualResults) && KString.isNotNull(expectedResults) && KString.isNotNull(userAction) && KRequest.isPost(request)){
+			KReport report = new KReport();
+			
+			report.setLibelle(libelle);
+			report.setDescriptif(descriptif);
+			report.setActualResults(actualResults);
+			report.setExpectedResults(expectedResults);
+			report.setUserAction(userAction);
+			report.setDateCreation(dateCreation);
+			report.setIdStatut(idStatut);
+			report.setIdUtilisateur(idUtilisateur);
+			
+			KoSession.add(report);
+			
+			request.getSession().setAttribute("libelle", report.getLibelle());
+			out.print("<div class='infoUpdateMessage'>Report ["+report+"] créé</div>");
+		}
+		
+		else{
+			KRequest.forward("/homeConnected.do", request, response, "_ajx=true");
 		}
 	}
 	

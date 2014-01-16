@@ -1,5 +1,5 @@
 {#set:this.ajaxIncludes=true#}
-{#className:net.bo.KReportr#}
+{#className:net.bo.KReport#}
 {#koDisplay:net.display.ReportDisplay#}
 <div id="divReport">
 {_form}
@@ -12,9 +12,6 @@
 <div id="error-frmKReport-expectedResults" class="displayMessage"></div>
 <div id="error-frmKReport-userAction" class="displayMessage"></div>
 </div>
-<div style="display:inline-block">{name:login,options:"style='width:400px;'"}</div><a id="verifDispoLogin">Vérifier la disponibilité du login...</a>
-<div>{name:mail, options:"style='width:400px;'"}</div>
-<div>{name:password, options:"style='width:400px;'"}</div>
 <div class="boxButtons">
 	<div class="btn" id="btSubmitInscription"><span>Valider la création</span></div>
 </div>

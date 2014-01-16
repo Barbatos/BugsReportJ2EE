@@ -20,6 +20,7 @@ import org.apache.catalina.Globals;
 @WebServlet(name = "Action", urlPatterns = { "*.act" })
 public class Action extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private java.sql.Timestamp timestamp;
 	
 	/**
 	 * @see HttpServlet#HttpServlet()
@@ -68,6 +69,7 @@ public class Action extends HttpServlet {
 				break;
 				
 			case "creerReport":
+				creerReport(request, response, out);
 				break;
 				
 			case "exit":
@@ -104,15 +106,17 @@ public class Action extends HttpServlet {
 	}
 	
 	public void creerReport(HttpServletRequest request, HttpServletResponse response, PrintWriter out) throws ServletException, IOException {
+		
+		
 		String libelle = KRequest.GETPOST("libelle", request);
 		String descriptif = KRequest.GETPOST("descriptif", request);
 		String actualResults = KRequest.GETPOST("actualResults", request);
 		String expectedResults = KRequest.GETPOST("expectedResults", request);
 		String userAction = KRequest.GETPOST("userAction", request);
-		java.sql.Date dateCreation = (java.sql.Date) new java.util.Date();
-		int idStatut = KRequest.GETPOST("idStatut", request, 2);
-		//int idUsecase = KRequest.GETPOST("idUsecase", request);
-		//int idUtilisateur = KRequest.GETPOST("idUtilisateur", request);
+		java.sql.Date dateCreation = new java.sql.Date(System.currentTimeMillis());
+		int idStatut = Integer.parseInt(KRequest.GETPOST("idStatut", request));
+		int idUsecase = Integer.parseInt(KRequest.GETPOST("idUsecase", request));
+		int idUtilisateur = 1;
 		
 		if(KString.isNotNull(libelle) && KString.isNotNull(descriptif) && KString.isNotNull(actualResults) && KString.isNotNull(userAction) && KRequest.isPost(request)){
 			KReport report = new KReport();
@@ -124,13 +128,14 @@ public class Action extends HttpServlet {
 			report.setUserAction(userAction);
 			report.setDateCreation(dateCreation);
 			report.setIdStatut(idStatut);
-			//report.setIdUsecase(idUsecase);
-			//report.setIdUtilisateur(idUtilisateur);
+			report.setIdUsecase(idUsecase);
+			report.setIdUtilisateur(idUtilisateur);
 			
 			KoSession.add(report);
 			
 			request.getSession().setAttribute("libelle", report.getLibelle());
 			out.print("<div class='infoUpdateMessage'>Report ["+report+"] créé</div>");
+			KRequest.forward("/homeConnected.do", request, response, "_ajx=true");
 		}
 		
 		else{

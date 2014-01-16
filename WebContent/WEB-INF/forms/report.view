@@ -1,6 +1,5 @@
 {#set:this.ajaxIncludes=true#}
 {#className:net.bo.KReport#}
-{#koDisplay:net.display.ReportDisplay#}
 <div id="divReport">
 {_form}
 {_fieldset}
@@ -17,7 +16,7 @@
 {actualResults}
 {expectedResults}
 {userAction}
-{idUseCase}
+{idUsecase}
 {idStatut}
 <div class="boxButtons">
 	<div class="btn" id="btSubmitReport"><span>Valider la création</span></div>

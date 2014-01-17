@@ -46,7 +46,6 @@ p.clear{
 	height: 0; 
 	border-left: 4px solid transparent;
 	border-right: 4px solid transparent;
-	
 	border-top: 4px solid [buttonFont];
 }
 
@@ -54,8 +53,7 @@ p.clear{
 	width: 0; 
 	height: 0; 
 	border-top: 4px solid transparent;
-	border-bottom: 4px solid transparent;
-	
+	border-bottom: 4px solid transparent;	
 	border-left: 4px solid [buttonFont];
 }
 
@@ -64,7 +62,6 @@ p.clear{
 	height: 0; 
 	border-top: 4px solid transparent;
 	border-bottom: 4px solid transparent; 
-	
 	border-right:4px solid [buttonFont]; 
 }
 
@@ -132,6 +129,9 @@ label{
 .in-line{
 	display: inline;
 }
+.inline{
+	display: inline-block;
+}
 .pHeader{
 	color:white;background-color:DarkGray;
 }
@@ -154,71 +154,7 @@ label{
 .fileInput:focus{
 	border:1px;
 }
-#_classes, #_commandes {
-	display: inline-block;
-	vertical-align: top;
-}
-#_commandesResponse{
-	background-color: #FFFFFF;
-	-webkit-border-radius: 4px 4px 4px 4px;
-	-moz-border-radius: 4px 4px 4px 4px;
-	border-radius:  4px 4px 4px 4px;
-	padding: 4px;
-	margin: 8px 0px 8px 0px;
-	border: 1px inset #F9F7E8;
-	min-height: 30px;
-}
-#_classes .label, #_classes .field, #_classes label{
-	display:inline-block;
-	font-weight: normal;
-	font-size: 11px;
-	vertical-align: middle;
-}
-#_classes .field{
-	height: auto;
-	width: auto;
-}
-#_classes #field-field{
-	width: 100%;
-}
-#_classes .label, #_classes label{
-	color:[specFontColor];
-}
-#_classes input, #_classes select{
-	font-size: 11px;	
-}
-#_classes .boxButtons{
-	margin: 3px 0px 0px 0px;
-}
-#_classes fieldset, #_commandes fieldset{
-	font-weight: normal;
-	-webkit-border-radius: 8px 0px 8px 0px;
-	-moz-border-radius: 8px 0px 8px 0px;
-	border-radius: 8px 0px 8px 0px;
-	border: 2px solid [bgCtrl];
-	background-color: [bgCtrl];
-	font-size: 11px;
-	min-width:300px;
-	resize: horizontal;
-	overflow: auto;
-}
-#_classes .checkboxList{
-	width: auto;
-	border-radius: 0px;
-}
-#_classes legend, #_commandes legend{
-	-webkit-border-radius: 4px 0px 4px 0px;
-	-moz-border-radius: 4px 0px 4px 0px;
-	border-radius: 4px 0px 4px 0px;
-	color:[colorFontCtrl];
-	font-weight: bold;
-	font-size: 12px;
-	background-color: [bgCtrl];
-	margin-left:10px;
-	padding: 4px;
-	cursor: pointer;
-	box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 0 2px #FFFFFF inset;
-}
+
 /*-------------------------------Début CheckedList------------------------------------------*/
 .ckListOuter{
 	margin-top: 4px;

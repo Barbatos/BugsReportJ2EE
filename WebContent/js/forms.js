@@ -137,7 +137,10 @@ Object.extend(String.prototype, {
    isJSON: function() {
     var str = this.replace(/\\./g, '@').replace(/"[^"\\\n\r]*"/g, '');
     return (/^[,:{}\[\]0-9.\-+Eaeflnr-u \n\r\t]*$/).test(str);
-  } 
+  },
+  trim: function () {
+	    return this.replace(/^\s+|\s+$/gm, '');
+  }
 });
 
 
@@ -535,6 +538,13 @@ var Forms = {};//nameSpace
 					return Forms.DOM.getPossibleParent(parentElement);
 			}
 					
+		},
+		getNextsibling:function(node){
+			var x=node.nextSibling;
+			while (x.nodeType!=1){
+				x=x.nextSibling;
+			}
+			return x;
 		},
 		getTargetEvent:function(e){
 			return e.target || e.srcElement || e.originalTarget || e;
@@ -1302,7 +1312,11 @@ var Forms = {};//nameSpace
 		}
 		
 	};
-	var evt = new Event('listcomplete');
+	/*var nEvt;
+	if(document.createEvent)
+		nEvt=document.createEvent('listcomplete');
+	else
+		nEvt= new Event('listcomplete');*/
 	Forms.List=function(id,allowSelectNone){
 		this.id=id;
 		if(allowSelectNone!=undefined)
@@ -1598,6 +1612,7 @@ var Forms = {};//nameSpace
 				if(newValue!=element.value){
 					self.selectItem(this);
 					element.value=newValue;
+					element.valueText=self.getValueText();
 					Forms.Utils.fireEvent(element,'change');
 				}else{
 					if(self.allowSelectNone===true){
@@ -1618,8 +1633,8 @@ var Forms = {};//nameSpace
 		updateInfo:function(){
 			if(this.ckListInfo!=null)
 				this.ckListInfo.innerHTML=this.getValueText();
-			if(this.change)
-				Forms.Utils.fireEvent($(this.id), "change");
+			//if(this.change)
+			//	Forms.Utils.fireEvent($(this.id), "change");
 		},
 		getValueText:function(){
 			var selElement=$(this.itemName+"-"+this.id+"-"+$$(this.id));
@@ -1658,6 +1673,7 @@ var Forms = {};//nameSpace
 					this.className="ajaxItem-selected";
 					element.value=newValue;
 					self.valueSelected=newValue;
+					element.valueText=self.getValueText();
 					Forms.Utils.fireEvent(element,'change');
 				}else{
 					if(self.allowSelectNone===true){
@@ -1675,7 +1691,7 @@ var Forms = {};//nameSpace
 		updateInfo:function(){
 			if(this.ckListInfo!=null)
 				this.ckListInfo.innerHTML=this.getValueText();	
-			Forms.Utils.fireEvent($(this.id), "change");
+			//Forms.Utils.fireEvent($(this.id), "change");
 		},
 		getValueText:function(){
 			var selElement=$("ckItem-"+this.id+"-"+$$(this.id));
@@ -2209,8 +2225,11 @@ var Forms = {};//nameSpace
 			
 			  return serial.join('&');
 			},
-			getQueryString:function () {
-  				var result = {}, queryString = location.search.substring(1), re = /([^&=]+)=([^&]*)/g, m;
+			getQueryString:function (queryString) {
+  				var result = {};
+  				if(!queryString)
+  					queryString = location.search.substring(1);
+  				var re = /([^&=]+)=([^&]*)/g, m;
 				while (m = re.exec(queryString)) {
     			result[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
   				}
@@ -2331,7 +2350,7 @@ var Forms = {};//nameSpace
 					else
 						elements=element.getElementsByTagName('*');
 					for(var i=0;i<elements.length;i++)
-						elements[i].className=elements[i].className +" "+className;
+						elements[i].className=(elements[i].className +" "+className).trim();
 				}
 				
 			},
@@ -2348,7 +2367,7 @@ var Forms = {};//nameSpace
 					else
 						elements=element.getElementsByTagName('*');
 					for(var i=0;i<elements.length;i++)
-						elements[i].className=elements[i].className.replace(new RegExp("(\s*)"+className+"(\s*)"),"");
+						elements[i].className=elements[i].className.replace(new RegExp("(\s*)"+className+"(\s*)"),"").trim();
 				}
 				
 			},
@@ -2366,7 +2385,7 @@ var Forms = {};//nameSpace
 						element=$(element);
 					if(element!=null){
 						element.className=element.className.replace(new RegExp("(\s*)"+className+"(\s*)"),"");
-						element.className=element.className+" "+className;
+						element.className=(element.className+" "+className).trim();
 					}
 				}
 			},
@@ -2377,7 +2396,7 @@ var Forms = {};//nameSpace
 					if(Object.isString(element))
 						element=$(element);
 					if(element!=null)
-						element.className=element.className.replace(new RegExp("(\s*)"+className+"(\s*)"),"");
+						element.className=element.className.replace(new RegExp("(\s*)"+className+"(\s*)"),"").trim();
 				}
 			},
 			replaceClass:function(classNameToReplace,newClassName,element){
@@ -2387,7 +2406,7 @@ var Forms = {};//nameSpace
 					if(Object.isString(element))
 						element=$(element);
 					if(element!=null)
-						element.className=element.className.replace(new RegExp("(\s*)"+classNameToReplace+"(\s*)"),newClassName);
+						element.className=element.className.replace(new RegExp("(\s*)"+classNameToReplace+"(\s*)"),newClassName).trim();
 				}
 			},
 			clearStyles:function (element, styles){
@@ -3639,6 +3658,28 @@ var Forms = {};//nameSpace
 })();
 
 (function(){
+	function supportAjaxUploadWithProgress() {
+		  return supportFileAPI() && supportAjaxUploadProgressEvents() && supportFormData();
+
+		  // Is the File API supported?
+		  function supportFileAPI() {
+		    var fi = document.createElement('INPUT');
+		    fi.type = 'file';
+		    return 'files' in fi;
+		  };
+
+		  // Are progress events supported?
+		  function supportAjaxUploadProgressEvents() {
+		    var xhr = new XMLHttpRequest();
+		    return !! (xhr && ('upload' in xhr) && ('onprogress' in xhr.upload));
+		  };
+
+		  // Is FormData supported?
+		  function supportFormData() {
+		    return !! window.FormData;
+		  }
+		}
+	
 	Forms.Ajax=function(id,url,params,func,indicator){
 		this.id=id;
 		this.url=url;
@@ -3658,25 +3699,40 @@ var Forms = {};//nameSpace
 		onload: null,
 		onlyContent:false,
 		async: true,
+		isUpload:false,
+		noIndicator:false,
+		uid:"",
 		load:function(args){
+			this.uid=this.url+"."+this.params+"."+this.method;
+			if(requests.indexOf(this.uid)>-1)
+				return;
+			else
+				(requests.push(this.uid));
 			var xObj;
 			var _this=this;
 			var _args=args;
-			if(this.params==undefined || this.params=="")
-				this.params="_ajx";
-			if(this.params.indexOf("_ajx")==-1)
-				this.params+="&_ajx";
-			if(!this.indicator)
-				this.indicator=$("main-ajax-loader");
-			if (this.indicator)
-				Forms.Utils.show(this.indicator.id,true);
+			if(!this.isUpload){
+				if(this.params==undefined || this.params=="")
+					this.params="_ajx";
+				if(this.params.indexOf("_ajx")==-1)
+					this.params+="&_ajx";
+				if(!this.indicator && !this.noIndicator)
+					this.indicator=$("main-ajax-loader");
+				if (this.indicator && !this.noIndicator)
+					Forms.Utils.show(this.indicator.id,true);
+			}
 			this.method=this.method.toUpperCase();
 			xObj=this.getXhrequest();
+			if(this.isUpload)
+				this.initUpload(xObj);
 			document._ajx=true;
 			if(this.async){
 				xObj.onreadystatechange=function(){ 
 					if(xObj.readyState  == 4){
-						if (_this.indicator!=null)
+						var i=requests.indexOf(_this.uid);
+						if(i>-1)
+							requests.splice(i, 1);
+						if (!_this.noIndicator && _this.indicator!=null)
 							Forms.Utils.show(_this.indicator.id,false); 
 						if(xObj.status  == 200){
 							_this.content=xObj.responseText;
@@ -3721,18 +3777,18 @@ var Forms = {};//nameSpace
 					}
 				};
 			}else{
-				if (_this.indicator!=null)
+				if (!_this.noIndicator && _this.indicator!=null)
 					Forms.Utils.show(_this.indicator.id,false); 
 			}
-		if (this.method=='GET')
-			xObj.open( this.method, this.url+this.getSep()+this.params, this.async);
-		else{
-			xObj.open( this.method, this.url, this.async);
-			this.setPostHeader(xObj);
-		}
-		xObj.send(this.params);
-		if(!this.async)
-			this.content=xObj.responseText;
+			if (this.method=='GET')
+				xObj.open( this.method, this.url+this.getSep()+this.params, this.async);
+			else{
+				xObj.open( this.method, this.url, this.async);
+				this.setPostHeader(xObj);
+			}
+			xObj.send(this.params);
+			if(!this.async)
+				this.content=xObj.responseText;
 		},
 		getSep:function(){
 			var result="?";
@@ -3767,11 +3823,41 @@ var Forms = {};//nameSpace
 		},
 		setPostHeader:function(xObj){
 			try{
-				xObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
-				//TODO vérifier upload files
-				//xObj.setRequestHeader("Content-length", this.params.length);
-				//xObj.setRequestHeader("Connection", "close");
+				if(!this.isUpload)
+					xObj.setRequestHeader("Content-type", "application/x-www-form-urlencoded; charset=UTF-8");
 			}catch(e){}
+		},
+		upload:function(element){
+			var formData = new FormData();
+			for(var i=0;i<element.files.length;i++){
+				formData.append('file'+i, element.files[i]);
+			}
+			formData.append("_ajx",true);
+			this.method='POST';
+			this.isUpload=true;
+			if(this.params){
+				queryString=Forms.Utils.getQueryString(this.params);
+				for(var variable in queryString)
+					formData.append(variable, queryString[variable]);
+			}
+			this.params=formData;
+			this.load();
+		},
+		initUpload:function(xhrequest){
+			if(supportAjaxUploadWithProgress()){
+				var _this=this;
+				var onloadstartHandler=function(evt) {
+					  var div = document.getElementById(_this.id);
+					  Forms.Utils.setInnerHTML(div, "<div id='progress'><p>Upload...<strong>0%</strong></p><progress value='5' min='0' max='100'>0%</progress></div>");
+				};
+				var onprogressHandler=function(evt) {
+				  var percent = Math.floor(evt.loaded/evt.total*100);
+				  (new $e('#progress progress')).attr('value',percent);
+				  (new $e('#progress strong')).html(percent+"%");
+				};
+				xhrequest.upload.addEventListener('loadstart', onloadstartHandler, false);
+				xhrequest.upload.addEventListener('progress', onprogressHandler, false);
+			}
 		}
 	};
 	//Membres privés
@@ -3846,7 +3932,7 @@ getCheckedValues=function(checkedObj) {
 (function(){
 	Forms.Framework={
 			
-		VERSION:"1.0.0.25c",
+		VERSION:"1.0.0.25d",
 		getRandomUID:function(){
 			return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
 			    var r = Math.random()*16|0, v = c == 'x' ? r : (r&0x3|0x8);
@@ -4243,6 +4329,51 @@ getCheckedValues=function(checkedObj) {
 					}
 				});
 			});
+		},
+		opShowDifferences:function(){
+			var same=true;
+			(new $e("div")).each(function(k,v){Forms.Utils.rmClass("idem", v);Forms.Utils.rmClass("updated", v);Forms.Utils.rmClass("new", v);});
+			(new $e("div[id^='cp-']")).each(function(k,v){
+				var id=v.id.replace("cp-","");
+				var elm=$(id);
+				if(elm){
+					if(elm.innerHTML==v.innerHTML.replace(/\<input.*?type\=\"checkbox\".*?\>/g,"").replace(/cp\-/g,"")){
+						Forms.Utils.addClass("idem", $(id));
+						Forms.Utils.addClass("idem", v);
+					}else{
+						Forms.Utils.addClass("updated", $(id));
+						Forms.Utils.addClass("updated", v);
+						same=false;
+					}
+				}else{
+					Forms.Utils.addClass("new", v);
+					same=false;
+				}
+					
+			});
+			if(!same){
+				$set($('infos'),'Les fichiers comportent des différences');
+			}else
+				$set($('infos'),'Les 2 fichiers sont identiques');
+			
+			Forms.Utils.show("btTest", !same);
+			(new $e("#copy input[type=checkbox]")).addEvent("click",function(e){
+				var someChecked=false;
+				var target=$gte(e);
+				(new $e("input[type=checkbox]",target.parentNode)).each(function(k,v){
+					v.checked=target.checked;
+					});
+				someChecked=(new $e("#copy input[type=checkbox]:checked")).length()>0;
+				Forms.Utils.show("btTestChecked", someChecked);
+			});
+		},
+		createBtn:function(container,id,caption,extClassName,intClassName){
+			var bt=Forms.DOM.insertIn(id, container, "div");
+			bt.className=extClassName;
+			var btSpan=Forms.DOM.insertIn("span-"+id, bt, "span");
+			btSpan.appendChild(document.createTextNode(caption));
+			btSpan.className=intClassName;
+			return bt;
 		}
 	};
 })();
@@ -4595,6 +4726,20 @@ Forms.Framework.DeboggerObject.created=false;
 				}
 				return this;
 			},
+			attr:function(attr,newValue){
+				values=this.values;
+				for(var i=0;i<values.length;i++){
+					values[i][attr]=newValue;
+				}
+				return this;				
+			},
+			html:function(html){
+				values=this.values;
+				for(var i=0;i<values.length;i++){
+					Forms.Utils.setInnerHTML(values[i], html);
+				}
+				return this;				
+			},
 			css:function(styles){
 				values=this.values;
 				for(var i=0;i<values.length;i++){
@@ -4670,3 +4815,4 @@ $num=Forms.Utils.num;
 $e=Forms.Elements;
 _message=null;
 _ER=null;
+requests=new Array();
